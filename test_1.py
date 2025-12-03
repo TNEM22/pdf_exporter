@@ -279,6 +279,10 @@ def remove_extra_pages(pdf_bytes: bytes, keep_pages=1):
 # Flask API
 app = Flask(__name__)
 
+@app.route('/', methos=['GET'])
+def check_health():
+    return jsonify({'status': 'healthy'}), 200
+
 @app.route('/generate_pdf', methods=['POST'])
 def generate_pdf_endpoint():
     """Flask endpoint to generate PDF. Limits concurrent requests to 10 via semaphore."""
