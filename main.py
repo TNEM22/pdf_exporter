@@ -329,4 +329,4 @@ def generate_pdf_endpoint():
 # --------------------------------------------------------
 if __name__ == "__main__":
     # Run Flask API
-    app.run(debug=True, host='0.0.0.0', port=5000, threaded=True)
+    app.run(debug=False, host='0.0.0.0', port=5000, threaded=True)
