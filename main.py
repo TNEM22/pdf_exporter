@@ -150,7 +150,7 @@ def generate_pdf(path: str, dynamic_filter: Dict[str, Any], headless: bool = Tru
         driver.set_window_size(1920, bounding_box["height"])
         time.sleep(0.5)
 
-        print(f"Current Height: {bounding_box["height"]}")
+        print(f"Current Height: {bounding_box['height']}")
         pdfHeight = int((bounding_box["height"] / 100) + 5)
         print(f"Pdf Height: {pdfHeight}")
         pdf_bytes = driver.execute_cdp_cmd("Page.printToPDF", {
@@ -279,7 +279,8 @@ def remove_extra_pages(pdf_bytes: bytes, keep_pages=1):
 # Flask API
 app = Flask(__name__)
 
-@app.route('/', methos=['GET'])
+@app.route('/', methods=['GET'])
+@app.route('/check', methods=['GET'])
 def check_health():
     return jsonify({'status': 'healthy'}), 200
 
