@@ -20,4 +20,9 @@ RUN pip install --no-cache-dir -r requirements.txt
 # Expose port for Flask
 EXPOSE 10000
 
-CMD ["python", "main.py"]
+# CMD ["python", "main.py"]
+
+# -------------- IMPORTANT --------------
+# Use GUNICORN in production instead of flask dev server
+CMD ["gunicorn", "--bind", "0.0.0.0:10000", "main:app"]
+# ---------------------------------------
