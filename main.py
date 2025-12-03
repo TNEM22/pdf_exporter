@@ -31,7 +31,7 @@ MAX_WAIT_TIME = 330 # 5.5 MINUTES
 SCROLL_OFFSET = 20
 
 # Global semaphore to limit concurrent PDF generations to 10 (like max tabs)
-sem = threading.Semaphore(10)
+sem = threading.Semaphore(1)
 
 @dataclass
 class WidgetBoundary:
@@ -327,6 +327,6 @@ def generate_pdf_endpoint():
 # --------------------------------------------------------
 # Run
 # --------------------------------------------------------
-if __name__ == "__main__":
-    # Run Flask API
-    app.run(debug=True, host='0.0.0.0', port=10000, threaded=True)
+# if __name__ == "__main__":
+#     # Run Flask API
+#     app.run(debug=True, host='0.0.0.0', port=10000, threaded=True)

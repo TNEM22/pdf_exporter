@@ -24,5 +24,7 @@ EXPOSE 10000
 
 # -------------- IMPORTANT --------------
 # Use GUNICORN in production instead of flask dev server
-CMD ["gunicorn", "--bind", "0.0.0.0:10000", "main:app"]
+# CMD ["gunicorn", "--bind", "0.0.0.0:10000", "main:app"]
+# Gunicorn: 1 worker, no threads → prevent multiple Chromes
+CMD ["gunicorn", "--bind", "0.0.0.0:10000", "-w", "1", "--threads", "1", "--timeout", "0", "main:app"]
 # ---------------------------------------
