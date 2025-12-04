@@ -5,7 +5,7 @@ RUN apt-get update && apt-get install -y \
     wget gnupg unzip curl \
     chromium chromium-driver \
     --no-install-recommends && \
-    && apt-get clean && rm -rf /var/lib/apt/lists/*
+    apt-get clean && rm -rf /var/lib/apt/lists/*
 
 # Environment so selenium uses chromium + chromedriver
 ENV CHROME_BIN=/usr/bin/chromium
