@@ -4,7 +4,8 @@ FROM python:3.10-slim
 RUN apt-get update && apt-get install -y \
     wget gnupg unzip curl \
     chromium chromium-driver \
-    && apt-get clean
+    --no-install-recommends && \
+    && apt-get clean && rm -rf /var/lib/apt/lists/*
 
 # Environment so selenium uses chromium + chromedriver
 ENV CHROME_BIN=/usr/bin/chromium
